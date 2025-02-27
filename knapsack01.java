@@ -3,16 +3,20 @@
 import java.util.*;
 class knapsack01{
     static int [][] dp;
-    public static int knapsack(int [] weight , int [] profit, int w , int n ){
-       if(n==0 || w==0) return 0;
-       if(dp[n][w]!=-1) return dp[n][w];
-       if(weight[n-1]<=w){
-        return dp[n][w] = Math.max(profit[n-1]+knapsack(weight, profit, w-weight[n-1], n-1),knapsack(weight, profit, w, n-1));
-       }
-       if(weight[n-1>w]){
-        return dp[n][w]=knapsack(0, profit, w, n)
-       }
+    public static int knapsack(int[] weight, int[] profit, int w, int n) {
+        if (n == 0 || w == 0) return 0;
+        if (dp[n][w] != -1) return dp[n][w];
+
+        if (weight[n - 1] <= w) {
+            return dp[n][w] = Math.max(
+                profit[n - 1] + knapsack(weight, profit, w - weight[n - 1], n - 1),
+                knapsack(weight, profit, w, n - 1)
+            );
+        } else {
+            return dp[n][w] = knapsack(weight, profit, w, n - 1);
+        }
     }
+
 
     public static void main(String[] args) {
        
