@@ -21,17 +21,17 @@ class knapsack01{
     public static void main(String[] args) {
        
         int n =3;
-        int w=4;
-        int profit [] = {1,2,3};
-        int weight[]={4,5,1};
+        int w=50;
+        int profit [] = {60,100,120};
+        int weight[]={10,20,30};
         dp = new int [n+1][w+1];
         for( int i =0 ; i< n+1 ;i++){
             Arrays.fill(dp[i], -1);
         }
-        System.out.println(dp[0][0]+" "+dp[1][1]);
+     //   System.out.println(dp[0][0]+" "+dp[1][1]);
 
         int max = knapsack(weight , profit , w ,n);
-        System.out.println("max is "+max);
+        System.out.println("max profit is  :-> "+max);
         
         
     }
